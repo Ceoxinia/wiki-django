@@ -1,0 +1,20 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Wiki
+{% endblock %}
+    
+{% block body %}
+    {% if error %}
+        <p style="color:red">{{ error }}</p>
+    {% endif %}
+    <h1>Create New Page</h1>
+    <p>Please note that wikipedia uses <a href="https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax">Github Markdown</a> syntax to style its pages.</p>
+    
+    <form action="{% url 'create' %}" method="post">
+        {% csrf_token %}
+        {{ newPageForm }}
+        <br>
+        <button class="btn btn-dark" type="submit">Submit</button>
+    </form>
+{% endblock %}

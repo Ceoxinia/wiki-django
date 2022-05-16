@@ -1,0 +1,22 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Wiki
+{% endblock %}
+
+{% block body %}
+    <ul class="no-bullet">
+        <li><h1>Displaying results for "{{ query }}"</h1></li>
+        <br>
+        {% if results|length >= 1 %}
+            <li>Found {{ results|length }} results</li>
+            <hr/>
+        {% endif %}
+        
+        {% for result in results %}
+            <li><a href="{% url 'entry' result %}">{{ result }}</a></li>
+        {% empty %}
+            <li>The requested page isn't available.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Wiki
+{% endblock %}
+
+{% block body %}
+    <h1 style="color:crimson">"{{title}}" does not exist</h1>
+    <p> Please check the <a href="{% url 'index' %}">index</a> page to see available articles.</p>
+{% endblock %}
